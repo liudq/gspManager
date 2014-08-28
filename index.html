@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="./favicon.ico" rel="shortcut icon" />
+	<meta charset="UTF-8">
+	<title>gsp management system</title>
+	  <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	  <link href="./bootstrap/css/bootstrap-dialog.min.css" rel="stylesheet">
+	  <!-- Custom styles for this template -->
+	  <link href="./css/dashboard.css" rel="stylesheet">
+	  <link href="./bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+	  <!--add my style-->
+	  <link href="./css/style.css" rel="stylesheet">
+	  <!--add jquery UI-->
+	  <link href="./bootstrap/jquery-ui/css/custom-theme/jquery-ui-1.10.0.custom.css" rel="stylesheet">
+	  <link href="./css/bootstrap-treeview.css" rel="stylesheet">
+</head>
+<body>
+<!--header start-->
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">丽博通医药管理系统</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="index.html">财务管理</a></li>
+            <li ><a href="index.html">库存管理</a></li>
+            <li><a href="#">GSP管理</a></li>
+            <li><a href="#">销售管理</a></li>
+            <li><a href="#">客户管理</a></li>
+            <li><a href="#">个人信息管理</a></li>
+            <li><a href="#">供应商管理</a></li>
+            <li><a href="#">采购管理</a></li>
+            <li><a href="#">系统管理</a></li>
+          </ul>
+           <ul class="nav navbar-nav navbar-right">
+           	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">设置<b class="caret"></b></a>
+            	<ul class="dropdown-menu myMenu">
+					<li><a href="">退出</a></li>
+					<li><a href="">修改密码</a></li>
+					<li><a href="">切换用户</a></li>
+				</ul>
+            </li>
+            
+            <li><a href="#">admin 欢迎您！</a></li>
+            
+          </ul>
+          <!-- <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form> -->
+        </div>
+      </div>
+    </div>
+<!--header end-->
+<!--left start-->
+	<div class="col-sm-2 col-md-2 sidebar">
+		  <label for="treeview"></label>
+		  <div id="treeview"></div>
+   </div>
+<!--left end-->
+<!--main start-->
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <ul class="breadcrumb" contenteditable="true">
+            <li><a href="#">库存管理</a> <span class="divider">/</span></li>
+            <li><a href="#">库存信息</a> <span class="divider">/</span></li>
+            <li class="active">入库登记/复核</li>
+          </ul>
+          <h3 class="sub-header">入库登记/复核</h3>
+          <form class="form-search form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail2">验收单编码：</label>
+                <input type="search" class="form-control" id="exampleInputEmail2" placeholder="验收单编码">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputPassword2">入库类型：</label>
+                <select class="form-control">
+                	<option value="0">-请选择-</option>
+				  	<option value="1">采购入库</option>
+				  	<option value="2">销退入库</option>
+				  </select>
+            </div>
+                  <button type="submit" class="btn btn-primary" contenteditable="true">查找</button>
+                  <button type="submit" class="btn btn-primary" contenteditable="true">重置</button>
+          </form>
+          <div class="btn-group">
+            <a type="button" class="btn btn-primary glyphicon glyphicon-plus"  href='add.html'>添加</a>
+            <button type="button" class="btn btn-primary glyphicon glyphicon-remove" id="remove">删除</button>
+            <button type="button" class="btn btn-primary glyphicon glyphicon-zoom-in" id="view">查看</button>
+         </div>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped table-condensed">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" id="all"/></th>
+                  <th>入库验收单主键</th>
+                  <th>验收单编号</th>
+                  <th>入库类型</th>
+                  <th>订单编号</th>
+                  <th>发票内容是否完整</th>
+                  <th>运输方式</th>
+                  <th> 操作 </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" value="" name="chkItem"/></td>
+                  <td>RK14050002</td>
+                  <td>XX</td>
+                  <td>采购付款</td>
+                  <td>货款</td>
+                  <td>234.00</td>
+                  <td>0.00</td>
+                  <td> 
+                    <button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-remove" name="removeById" data-options="${f.pkReptForm}"></button>
+                    <button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-zoom-in" name="viewById" data-options="${f.pkReptForm}"></button>
+                    <button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-wrench" name="updateById" data-options="${f.pkReptForm}"></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" value="" name="chkItem"/></td>
+                  <td>RK14050003</td>
+                  <td>XX</td>
+                  <td>采购付款</td>
+                  <td>预付款</td>
+                  <td>234.00</td>
+                  <td>199</td>
+                  <td> 
+                    <button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-remove" name="removeById" data-options="${f.pkReptForm}"></button>
+                    <button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-zoom-in" name="viewById" data-options="${f.pkReptForm}"></button>
+                    <button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-wrench" name="updateById" data-options="${f.pkReptForm}"></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" value="" name="chkItem"/></td>
+                  <td>RK14050004</td>
+                  <td>XX</td>
+                  <td>采购付款</td>
+                  <td>预付款</td>
+                  <td>234.00</td>
+                  <td>199</td>
+                  <td> 
+                    <button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-remove" name="removeById" data-options="${f.pkReptForm}"></button>
+                    <button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-zoom-in" name="viewById" data-options="${f.pkReptForm}"></button>
+                    <button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-wrench" name="updateById" data-options="${f.pkReptForm}"></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" value="" name="chkItem"/></td>
+                  <td>RK14050005</td>
+                  <td>XX</td>
+                  <td>采购付款</td>
+                  <td>预付款</td>
+                  <td>234.00</td>
+                  <td>199</td>
+                  <td> 
+                    <button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-remove" name="removeById" data-options="${f.pkReptForm}"></button>
+                    <button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-zoom-in" name="viewById" data-options="${f.pkReptForm}"></button>
+                    <button type="button" class="btn btn-primary btn-sm glyphicon glyphicon-wrench" name="updateById" data-options="${f.pkReptForm}"></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          	<ul class="pagination pagination-sm">
+			  <li class="disabled"><a href="#">&laquo;</a></li>
+			  <li class="active"><a href="#">1</a></li>
+			  <li><a href="#">2</a></li>
+			  <li><a href="#">3</a></li>
+			  <li><a href="#">4</a></li>
+			  <li><a href="#">5</a></li>
+			  <li><a href="#">&raquo;</a></li>
+			</ul>
+        </div>
+<!--main end-->
+</body>
+	  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	 <script src="./js/jquery-1.8.3.min.js"></script>
+	 <!-- Bootstrap core js -->
+	 <script src="./bootstrap/js/bootstrap.min.js"></script>
+	 <script src="./bootstrap/js/docs.min.js"></script>
+	 <script src="./bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+	 <script src="./bootstrap/js/bootstrap-datetimepicker.fr.js"></script>
+	 <script src="./bootstrap/js/bootstrap-dialog.min.js"></script>
+	 <script src="./bootstrap/jquery-ui/js/jquery-ui-1.9.2.custom.min.js"></script>
+	 <script src="./js/jquery.lbdropdown.js"></script>
+	 <script src="./js/left-tree.js"></script>
+	 <!-- Just for debugging purposes. Don't actually copy this line! -->
+	  <!--[if lt IE 9]><script src="../../resources/bootstrap/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+	  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	  <!--[if lt IE 9]>
+	    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	  <![endif]-->
+	  <script src="./js/bootstrap-treeview.js"></script>	
+</html>
